@@ -13,3 +13,5 @@ $('form').submit(function() {
 	review.save();
 	return false;
 })
+
+$('#star').raty('score');
