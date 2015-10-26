@@ -3,5 +3,7 @@
 @media screen and (max-width: 768px) {
 	#product img {
 		width: 350px;
+		text-align: center;
 	}
+
 }

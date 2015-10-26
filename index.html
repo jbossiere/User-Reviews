@@ -5,43 +5,49 @@
 		<meta charset="utf-8">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
-	    <title>Tsukushinbo Restaurant Review</title>
+	    <title>Julian Bossiere Review</title>
 	    <link rel="page icon" href="img/sushi.png"/>
 	    <link rel="stylesheet" href="css/main.css"/>
 
+	    <!-- jquery/bootstrap library -->
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>
 	    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
 	    <!-- parse library -->
         <script src="//www.parsecdn.com/js/parse-1.6.0.min.js"></script>
-
+        <!-- reading in jQuery raty -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raty/2.7.0/jquery.raty.min.js"></script>
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/raty/2.7.0/jquery.raty.css">
+
+        <!-- reading in javascript file -->
+        <script type="text/javascript" src="js/review.js"></script>
+
 
 	</head>
 
 	<body>
+		<!-- div for the title, and product info -->
 		<div id="product" class="container">
-			<h1>Tsukushinbo Restaurant</h1>
-			<img src="img/o-md.jpg" alt="Tsukushinbo Restaurant">
+			<h1>Julian Bossiere</h1>
+			<img src="img/o-md.jpg" alt="Julian Bossiere">
 			<p>Average Rating: </p>
-			<p>Tsukushinbo Restaurant is a popular izakaya-style, hole-in-the-wall restaurant in the International District of Seattle. It is known for authentic Japanese appetizers, seafood, fresh sushi/sashimi and the Friday lunchtime ramen special.</p>
+			<p>Julian Bossiere is a 22 year old student at University of Washington, where he studies Informatics.  His interests include playing music and singing, reading, studying languages, and long walks on the beach.</p>
 		</div>
+		 <!-- div for the form section -->
 		<div class="container">
 			<h3>What did you think?</h3>
-			<div id="star"></div>
+			<!-- div for the star rating -->
+			<div id="star">
+			</div>
 			<form>
 				<div class="form-group">
-					<!-- <label for"title">A title for your review</label> -->
 					<input class="form-control" id="title" placeholder="Title for your review"></input>	
 				</div>
 				<div class="form-group">
-					<!-- <label for="body">What did you think?</label> -->
 					<textarea class="form-control span12" rows="5" id="body" placeholder="Write a review"></textarea>
 				</div>
 				<button class="btn btn-primary" type="submit">Add Review</button>
 			</form>
 		</div>
 	</body>
-    <script type="text/javascript" src="js/review.js"></script>
 </html>
