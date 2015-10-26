@@ -5,7 +5,7 @@ $(document).ready(function() {
 
 	$('form').submit(function() {
 		var review = new Review();
-		$(this).find('input').each(function() {
+		$(this).find('.form-control').each(function() {
 			review.set($(this).attr('id'), $(this).val());
 			// console.log($(this).attr('id'))
 			// console.log($(this).val())
@@ -15,5 +15,5 @@ $(document).ready(function() {
 		return false;
 	})
 
-	$('#star').raty();
+	// $('#star').raty();
 })
