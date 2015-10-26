@@ -6,19 +6,38 @@
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <title>Tsukushinbo Restaurant Review</title>
+	    <link rel="page icon" href="img/sushi.png"/>
+	    <link rel="stylesheet" href="css/main.css"/>
 
-	    <!-- jQuery, Bootstrap -->
-	    <script src="https://code.jquery.com/jquery.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>
 	    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
 	    <!-- parse library -->
         <script src="//www.parsecdn.com/js/parse-1.6.0.min.js"></script>
 
 	</head>
+
 	<body>
-		<div class="container">
+		<div id="product" class="container">
 			<h1>Tsukushinbo Restaurant</h1>
-			<img src="img/o.jpg" alt="Tsukushinbo Restaurant">
+			<img src="img/o-md.jpg" alt="Tsukushinbo Restaurant">
+			<p>Average Rating: </p>
+			<p>Tsukushinbo Restaurant is a popular izakaya-style, hole-in-the-wall restaurant in the International District of Seattle. It is known for authentic Japanese appetizers, seafood, fresh sushi/sashimi and the Friday lunchtime ramen special.</p>
+		</div>
+		<div class="container">
+			<h3>What did you think?</h3>
+			<form>
+				<div class="form-group">
+					<!-- <label for"title">A title for your review</label> -->
+					<input class="form-control" id="title" placeholder="Title for your review"></input>	
+				</div>
+				<div class="form-group">
+					<!-- <label for="body">What did you think?</label> -->
+					<textarea class="form-control span12" rows="5" id="body" placeholder="Write a review"></textarea>
+				</div>
+				<button class="btn btn-primary" type="submit">Add Review</button>
+			</form>
 		</div>
 	</body>
+    <script type="text/javascript" src="js/review.js"></script>
 </html>
