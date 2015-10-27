@@ -11,7 +11,7 @@ $(document).ready(function() {
 	// gets user input including individual ratings and saves to parse.com
 	$('form').submit(function() {
 		var review = new Review();
-		$(this).find('#title, #body, reviewStar').each(function() {
+		$(this).find('#title, #body').each(function() {
 			review.set($(this).attr('id'), $(this).val());
 			console.log($(this).attr('id'))
 			console.log($(this).val())
