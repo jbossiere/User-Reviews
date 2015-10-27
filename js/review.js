@@ -4,12 +4,14 @@ $(document).ready(function() {
 	var Review = Parse.Object.extend('Review');
 
 	// create the star rating for user review
-
+	$('#reviewStar').raty({
+		half: true
+	});
 
 	// gets user input including individual ratings and saves to parse.com
 	$('form').submit(function() {
 		var review = new Review();
-		$(this).find('#title, #body').each(function() {
+		$(this).find('#title, #body, reviewStar').each(function() {
 			review.set($(this).attr('id'), $(this).val());
 			console.log($(this).attr('id'))
 			console.log($(this).val())
@@ -30,9 +32,6 @@ $(document).ready(function() {
 		return false;
 	})
 
-	$('#reviewStar').raty({
-		half: true,
-	});
 
 	var getData = function() {
 		var averageStar = 0;
