@@ -1,9 +1,6 @@
 @import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css);
 
-@media screen and (max-width: 768px) {
-	#product img {
-		width: 350px;
-		text-align: center;
-	}
+#product img {
+		width: 100%;
 
 }
