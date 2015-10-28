@@ -1,6 +1,6 @@
 Write a description of the website:
 
-<div>My user-reviews website is a site that allows users to write personalized reviews about the subject (Julian Bossiere).  Users are able to select their own star-rating, create their own title, create a body, then submit.  This data adds to the average rating of the subject, and their input gets added below the input box - where they themselves, as well as other users can upvote, downvote, and delete reviews.</div>
+My user-reviews website is a site that allows users to write personalized reviews about the subject (Julian Bossiere).  Users are able to select their own star-rating, create their own title, create a body, then submit.  This data adds to the average rating of the subject, and their input gets added below the input box - where they themselves, as well as other users can upvote, downvote, and delete reviews.
 
 Did you receive help from any other sources (classmates, etc.)? If so, please list who.
 
