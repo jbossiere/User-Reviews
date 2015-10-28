@@ -94,8 +94,6 @@ $(document).ready(function() {
 		var trimDate = String(date).substring(0, 15);
 		var upVote = item.get('upVote');
 		var downVote = item.get('downVote');
-		// var objectId = review.get('objectId');
-		// console.log(object.id )
 
 		totalReviews++;
 		totalRating += parseInt(stars);
@@ -122,10 +120,11 @@ $(document).ready(function() {
 		// create and append a thumb down button
 		var downButton = $('<button id="downThumb" class="button fa fa-thumbs-o-down"></button>');
 		downButton.click(function() {
-			query.get('SUS4tw84og', {
+			query.get(item.id, {
 				success: function(review) {
 					review.increment("downVote")
 					review.save();
+					getData
 				}
 			})
 		})
@@ -134,10 +133,11 @@ $(document).ready(function() {
 		// create and append a thumb up button
 		var upButton = $('<button id="upThumb" class="button fa fa-thumbs-o-up"></button>');
 		upButton.click(function() {
-			query.get('SUS4tw84og', {
+			query.get(item.id, {
 				success: function(review) {
 					review.increment("upVote")
 					review.save();
+					getData
 				}
 			})
 		})
@@ -153,6 +153,11 @@ $(document).ready(function() {
 		var customerReview = $('<p id="reviewBody"></p>');
 		customerReview.text(body);
 		div.append(customerReview);
+
+		// create stat about how many found it useful
+		var voteRatio = $('<p></p>');
+		voteRatio.text(upVote + " out of " + (upVote + downVote) + " found this review helpful");
+		div.append(voteRatio);
 
 		// create review create-dates
 		var reviewDate = $('<p></p>');
