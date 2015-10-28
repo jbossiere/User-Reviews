@@ -1,4 +1,12 @@
 @import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css);
+h1 {
+	font-size: 1.5em;
+}
+
+p#intro {
+	border: double #256EB7;
+	padding: 5px;
+}
 
 #product img {
 		width: 100%;
@@ -11,7 +19,8 @@
 }
 
 #reviewDiv {
-	background-color: #D4D4D4;
+	background-color: #256EB7;
+	color: white;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	padding-left: 15px;
@@ -33,6 +42,7 @@
 
 .button {
 	float: right;
+	color: black;
 }
 
 ol {

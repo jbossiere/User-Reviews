@@ -123,8 +123,9 @@ $(document).ready(function() {
 			query.get(item.id, {
 				success: function(review) {
 					review.increment("downVote")
-					review.save();
-					getData
+					review.save(null, {
+						success:getData
+					});
 				}
 			})
 		})
@@ -136,8 +137,9 @@ $(document).ready(function() {
 			query.get(item.id, {
 				success: function(review) {
 					review.increment("upVote")
-					review.save();
-					getData
+					review.save(null, {
+						success:getData
+					});
 				}
 			})
 		})
@@ -156,7 +158,11 @@ $(document).ready(function() {
 
 		// create stat about how many found it useful
 		var voteRatio = $('<p></p>');
-		voteRatio.text(upVote + " out of " + (upVote + downVote) + " found this review helpful");
+		if (upVote == 0 && downVote == 0) {
+			voteRatio.text("No one has voted on this yet!")
+		} else {
+			voteRatio.text(upVote + " out of " + (upVote + downVote) + " found this review helpful");
+		}
 		div.append(voteRatio);
 
 		// create review create-dates
