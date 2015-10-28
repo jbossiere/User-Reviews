@@ -4,3 +4,29 @@
 		width: 100%;
 
 }
+
+#reviewsTitle {
+	text-align: left;
+	text-decoration: underline;
+}
+
+#reviewDiv {
+	background-color: #D4D4D4;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 15px;
+	padding-right: 15px;
+	margin-bottom: 20px
+}
+
+#reviewBody {
+	font-size: 1.1em;
+}
+
+#deleteButton {
+	margin: auto;
+}
+
+ul {
+	padding-left: 0;	
+}

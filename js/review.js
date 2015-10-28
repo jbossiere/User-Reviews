@@ -5,7 +5,7 @@ $(document).ready(function() {
 
 	// create the star rating for user review
 	$('#reviewStar').raty({
-		half: true
+		score: 4
 	});
 
 	// gets user input including individual ratings and saves to parse.com
@@ -17,13 +17,10 @@ $(document).ready(function() {
 		})
 		// creates star review bar for user input
 		var starNum = $('#reviewStar').raty('score');
-		if (starNum == undefined) {
-			review.set($('#reviewStar').attr('id'), 0);	
-		}
 		review.set($('#reviewStar').attr('id'), starNum);
 
-		// reloads the star string after submit
-		$('#reviewStar').raty('set', {number: 5});
+		// // reloads the star string after submit
+		// $('#reviewStar').raty('set', {number: 5});
 		review.save(null, {
 			success:getData
 		})
@@ -33,66 +30,111 @@ $(document).ready(function() {
 
 
 	var getData = function() {
-		console.log('save success')
-		var averageStar = 0;
 		var query = new Parse.Query(Review);
-		query.notEqualTo('#reviewStar', '');
+		query.exists('reviewStar');
 		query.find({
-			success:function(results) {
-				buildList(results)
-			}
+		 	success:function(results) {
+		 		buildList(results)
+		 	},
+		 	error: function(error) {
+		 		console.log(error);
+		 		console.log(error.message);
+		 	}
+
 		});
 
 	}
 
+	// initializing variables 
+	var averageRating; 
+	var totalRating; // total number of stars
+	var totalReviews; // number of reviews
+
 	// A function to build your list
 	var buildList = function(data) {
-		console.log('query.find success')
+		averageRating = 0;
+		totalReviews = 0;
+		totalRating = 0;
+
 		// Empty out your ordered list
 		$('ol').empty()
 
 		// Loop through your data, and pass each element to the addItem function
-		var denom = data.length;
-		console.log(denom)
-		// data.forEach(function(d){
-		// 	addItem(d);
-		// })
+		data.forEach(function(d){
+			addItem(d);
+		})
+		// averaging
+		averageRating = totalRating/totalReviews;
+
+		// creates the average rating stars
+		$('#averageStar').raty({
+			readOnly: true,	
+			half: true,
+			score: averageRating
+		})
 	}
+
+
 
 	// This function takes in an item, adds it to the screen
 	var addItem = function(item) {
 		// Get parameters (website, band, song) from the data item passed to the function
-		var website = item.get('website')
-		var band = item.get('band')
-		var song = item.get('song')
-		
-		// Append li that includes text from the data item
-		var li = $('<li>Check out ' + band + ', their best song is ' + song + '</li>')
-		
-		// Create a button with a <span> element (using bootstrap class to show the X)
-		var button = $('<button class="btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button>')
-		
-		// Click function on the button to destroy the item, then re-call getData
+		var title = item.get('title');
+		var body = item.get('body');
+		var stars = item.get('reviewStar');
+		var date = item.get('createdAt');
+		var trimDate = String(date).substring(0, 15);
+
+		totalReviews++;
+		totalRating += parseInt(stars);
+
+		var div = $('<div id="reviewDiv"></div>');
+
+		$('ul').append(div);
+
+		$('div:last').raty({
+			readOnly: true,
+			score: stars
+		})
+
+		var button = $('<button id="deleteButton" class="btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button>')
 		button.click(function() {
 			item.destroy({
 				success:getData
 			})
 		})
+		div.append(button);
+
+
+		var customerTitle = $('<h3></h3>');
+		customerTitle.text(title);
+		div.append(customerTitle);
+
+		var customerReview = $('<p id="reviewBody"></p>');
+		customerReview.text(body);
+		div.append(customerReview);
+
+		var reviewDate = $('<p></p>');
+		reviewDate.text("posted on: " + trimDate);
+		div.append(reviewDate);
+
+		
+		// Append li that includes text from the data item
+		// var li = $('<li>Check out ' + body + ', their best song is ' + title + '</li>')
+		
+		// Create a button with a <span> element (using bootstrap class to show the X)
+		
+		// Click function on the button to destroy the item, then re-call getData
 
 		// Append the button to the li, then the li to the ol
-		li.append(button);
-		$('ol').append(li)
+		// $('ol').append(li)
 		
 	}
 
+
+
 	// Call your getData function when the page loads
 	getData()
-
-	// create a read-only star rating that shows average rating
-	$('#averageStar').raty({
-		readOnly: true,	
-		score: 3
-	})
 
 })
 
