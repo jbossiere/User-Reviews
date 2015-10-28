@@ -24,9 +24,17 @@
 }
 
 #deleteButton {
-	margin: auto;
+	position: relative;
 }
 
-ul {
+#customerTitle {
+	margin-top: 0;
+}
+
+.button {
+	float: right;
+}
+
+ol {
 	padding-left: 0;	
 }
