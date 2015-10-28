@@ -1,15 +1,39 @@
 @import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css);
+@import url(https://fonts.googleapis.com/css?family=Josefin+Slab);
+
+#body {
+	font-family: "Josefin Slab", serif;
+}
 h1 {
 	font-size: 1.5em;
+	text-align: center;
+}
+
+#averageStar {
+	color: #E6E600;
+}
+
+#reviewStar {
+	color: #E6E600;
+}
+
+img {
+	margin-top: 30px;
+}
+
+#productInfo {
+	margin-top: 50px;
 }
 
 p#intro {
-	border: double #256EB7;
-	padding: 5px;
+	border: solid #256EB7;
+/*	background-color: #256EB7;
+	color: white;
+*/	padding: 5px;
 }
 
 #product img {
-		width: 100%;
+	width: 100%;
 
 }
 
@@ -33,7 +57,7 @@ p#intro {
 }
 
 #deleteButton {
-	position: relative;
+	margin-left: 2.5px;
 }
 
 #customerTitle {
